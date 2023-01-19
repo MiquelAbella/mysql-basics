@@ -1,4 +1,4 @@
-# 💊 MySQL Basics
+# 💊 MySQL Basics MIQUEL ABELLA
 
 _MySQL, SQL language, setting environment variables._
 
