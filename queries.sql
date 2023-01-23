@@ -213,3 +213,76 @@ DELETE FROM departments
         GROUP BY dept_no
         ORDER BY count(dept_no) desc
         limit 1);
+
+
+--DATABASE CREATION
+
+DROP DATABASE IF EXISTS movies;
+CREATE DATABASE IF NOT EXISTS movies;
+USE movies;
+
+CREATE TABLE cover (
+    cover_id INT NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    PRIMARY KEY (cover_id)
+);
+
+CREATE TABLE country (
+    country_id INT NOT NULL,
+    country_name VARCHAR(50) NOT NULL,
+    PRIMARY KEY (country_id)
+);
+
+CREATE TABLE lang (
+    lang_id INT NOT NULL,
+    lang_name VARCHAR(50) NOT NULL,
+    PRIMARY KEY (lang_id)
+);
+
+CREATE TABLE category(
+    category_id INT NOT NULL,
+    category_name VARCHAR(50) NOT NULL,
+    PRIMARY KEY (category_id)
+);
+
+CREATE TABLE actor(
+    actor_id INT NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    birth_date DATE NOT NULL,
+    PRIMARY KEY (actor_id)
+);
+
+CREATE TABLE movie(
+    movie_id INT NOT NULL,
+    title VARCHAR(50) NOT NULL,
+    DESCRIPTION TEXT(800),
+    release_date DATE,
+    rating FLOAT,
+    original_lang INT NOT NULL,
+    country INT NOT NULL,
+    cover INT NOT NULL,
+    FOREIGN KEY (original_lang) REFERENCES lang (lang_id) ON DELETE CASCADE,
+    FOREIGN KEY (country)  REFERENCES country (country_id) ON DELETE CASCADE,
+    FOREIGN KEY (cover)  REFERENCES cover (cover_id) ON DELETE CASCADE,
+    PRIMARY KEY (movie_id)
+);
+
+CREATE TABLE movie_actor(
+    movie_actor_id INT NOT NULL,
+    movie_id INT NOT NULL,
+    actor_id INT NOT NULL,
+    FOREIGN KEY (movie_id)  REFERENCES movie (movie_id) ON DELETE CASCADE,
+    FOREIGN KEY (actor_id)  REFERENCES actor (actor_id) ON DELETE CASCADE,
+    PRIMARY KEY(movie_actor_id)
+);
+
+CREATE TABLE movie_category(
+    movie_category_id INT NOT NULL,
+    movie_id INT NOT NULL,
+    category_id INT NOT NULL,
+    FOREIGN KEY (movie_id)  REFERENCES movie (movie_id) ON DELETE CASCADE,
+    FOREIGN KEY (category_id)  REFERENCES category (category_id) ON DELETE CASCADE,
+    PRIMARY KEY(movie_category_id)
+);
+
