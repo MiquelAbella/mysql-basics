@@ -1,15 +1,24 @@
-# 💊 MySQL Basics MIQUEL ABELLA
+💊 MySQL Basics MIQUEL ABELLA
 
 _MySQL, SQL language, setting environment variables._
 
-## 📔 Description
-
-Intro pill which served as our first contact with the DBMS "MySQL", where we set an environment variable to be able to run the program from the command line, imported an example database from a ".sql" file provided by the official MySQL team, and executed some queries to play around with a DB and to getting familiar with the SQL language.
-
 ### 📂 Content
 
-This repository contains only the following files:
+This repository contains only the following:
 
 - **_README.md_**: this explanatory file.
 - **_employees.sql_**: file containing an example database provided by the official MySQL team, to import and use in our exercise.
 - **_queries.sql_**: file where we recorded all the necessary queries executed to fulfill this exercise.
+- **_assets_folder_**: Images of the databases schemas.
+
+### Requirements
+- XAMPP OR LAMPP INSTALLED - https://www.apachefriends.org/es/download.html
+
+### How to use
+- Paste the content of the .msql files into the terminal in order to create, update and get information of the database.
+- You can import files to a database manager application if prefered.
+
+### DB SCHEMAS
+
+![employees-schema](./assets/employees-schema.png)
+![movies-schema](./assets/movies-schema.png)
