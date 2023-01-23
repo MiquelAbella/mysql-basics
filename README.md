@@ -20,5 +20,8 @@ This repository contains only the following:
 
 ### DB SCHEMAS
 
+- Employees
 ![employees-schema](./assets/employees-schema.png)
+
+- Movies
 ![movies-schema](./assets/movies-schema.png)
