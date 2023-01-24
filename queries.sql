@@ -176,15 +176,12 @@ SELECT UCASE(first_name), UCASE(last_name)
     FROM employees; 
 
 --SELECT NAME OF EMPLOYEES AND CURRENT DEPARTMENT OF EACH EMPLOYEE
+SELECT T.first_name, T.last_name, departments.dept_name FROM
+    (SELECT employees.first_name, employees.last_name, dept_emp.dept_no
+    FROM employees INNER JOIN dept_emp ON employees.emp_no = dept_emp.emp_no) as T
+        INNER JOIN departments ON T.dept_no = departments.dept_no;
 
 
-(SELECT employees.first_name, employees.last_name, dept_emp.dept_no as 'department'
-    FROM employees JOIN dept_emp 
-    ON employees.emp_no  = dept_emp.emp_no)
-UNION
-(SELECT employees.first_name, employees.last_name, dept_manager.dept_no
-    FROM employees JOIN dept_manager
-    ON employees.emp_no  = dept_manager.emp_no) ORDER BY last_name;
 
 --SELECT NAME OF EMPLOYEES AND NUMBER OF TIMES THE EMPLOYEE HAS WORKED AS MANAGER
 
